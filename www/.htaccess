@@ -1,0 +1,14 @@
+RewriteEngine On
+ RewriteBase /
+
+RewriteRule ^wp-content/(.*)$ /content/$1 [R=301,NC,L]
+
+# add a trailing slash to /wp-admin
+ RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+ RewriteCond %{REQUEST_FILENAME} -d
+ RewriteRule ^ - [L]
+ RewriteRule ^([_0-9a-zA-Z-]+/)?(wp-(content|admin|includes).*) wp/$2 [L]
+ RewriteRule ^([_0-9a-zA-Z-]+/)?(.*\.php)$ wp/$2 [L]
+ RewriteRule . index.php [L]
+

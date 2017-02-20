@@ -1,0 +1,12 @@
+.git
+vendor/
+.vagrant
+wp/
+#www/content/plugins/*
+.env
+.DS_Store
+composer.lock
+www/content/uploads
+www/content/media
+!www/content/plugins/important-plugin/
+Gemfile.lock
